@@ -1,0 +1,128 @@
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐！</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebee;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            color: #e91e63;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        p {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .cake {
+            font-size: 5em;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(5deg); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(233, 30, 99, 0.3);
+        }
+        
+        button:hover {
+            background-color: #c2185b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cake">🎂</div>
+        <h1>生日快乐！</h1>
+        <p>我是大幽灵哈哈</p >
+        <p>在这特别的日子里，祝你心想事成，幸福安康，永远牛逼！</p >
+        <button onclick="showMessage()">点击祝福</button>
+    </div>
+    
+    <script>
+        // 创建气球
+        function createBalloons() {
+            const colors = ['#e91e63', '#2196f3', '#4caf50', '#ffeb3b', '#9c27b0'];
+            for (let i = 0; i < 15; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+                balloon.style.left = Math.random() * 100 + 'vw';
+                balloon.style.top = Math.random() * 100 + 'vh';
+                balloon.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+                balloon.style.animationDuration = Math.random() * 5 + 5 + 's';
+                balloon.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(balloon);
+            }
+        }
+        
+        // 显示祝福消息
+        function showMessage() {
+            alert('🎉 再次祝你生日快乐！我要写不完作业了！ 🎉');
+        }
+        
+        // 页面加载时创建气球
+        window.onload = createBalloons;
+    </script>
+</body>
+</html>
+```
+
